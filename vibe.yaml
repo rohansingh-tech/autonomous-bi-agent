@@ -1,0 +1,19 @@
+objectives:
+  primary_metric: conversion_rate
+  direction: increase  # increase|decrease
+constraints:
+  disallow:
+    - delete_records
+    - send_external_email
+  approvals_required: true
+thresholds:
+  anomaly_confidence:
+    high: 0.8
+    medium: 0.6
+  impact_minimum: 0.02  # 2% relative change
+actions:
+  - draft_alert
+  - draft_task
+ranking:
+  weight_impact: 0.7
+  weight_confidence: 0.3
